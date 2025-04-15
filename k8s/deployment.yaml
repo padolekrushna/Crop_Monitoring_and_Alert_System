@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crop-monitoring-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crop-monitoring
+  template:
+    metadata:
+      labels:
+        app: crop-monitoring
+    spec:
+      containers:
+      - name: crop-monitoring
+        image: your-dockerhub-username/crop-monitoring:latest
+        ports:
+        - containerPort: 8000
