@@ -28,4 +28,5 @@ jobs:
 
     - name: Execute Jupyter Notebook
       run: |
+        chcp 65001
         jupyter nbconvert --to notebook --execute Crop_Monitoring_and_Alert_System.ipynb --output executed_notebook.ipynb
