@@ -26,9 +26,10 @@ jobs:
         pip install -r requirements.txt
         pip install jupyter nbconvert
 
-    - name: Execute Jupyter Notebook (UTF-8 Safe)
+    - name: Execute Notebook and Capture Logs
       env:
         PYTHONIOENCODING: utf-8
       run: |
         chcp 65001
-        jupyter nbconvert --to notebook --execute Crop_Monitoring_and_Alert_System_Cleaned.ipynb --output executed_notebook.ipynb
+        jupyter nbconvert --to notebook --execute Crop_Monitoring_and_Alert_System_Cleaned.ipynb --output executed_notebook.ipynb --log-level=DEBUG 2>&1 | tee execution_log.txt
+
